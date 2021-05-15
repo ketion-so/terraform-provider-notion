@@ -19,4 +19,4 @@ provider "notion" {
 
 The following arguments are supported:
 
-* `access_token` - (Required) Access token for Notion API.
+* `access_token` - (Required) Access token for Notion API. If not set, the provider will see the `NOTION_ACCESS_TOKEN` environment variable.

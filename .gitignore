@@ -37,3 +37,6 @@ config
 
 # Terraform
 **.tf
+
+# Output
+terraform-provider-notion

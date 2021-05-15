@@ -14,16 +14,15 @@ func Provider() *schema.Provider {
 		Schema: map[string]*schema.Schema{
 			"access_token": {
 				Type:        schema.TypeString,
-				Description: "Token for the API",
+				Description: "Access token for the Notion API",
 				Required:    true,
-				DefaultFunc: schema.EnvDefaultFunc("NAMECHEAP_API_TOKEN", nil),
+				DefaultFunc: schema.EnvDefaultFunc("NOTION_API_TOKEN", nil),
 			},
 		},
-		ResourcesMap: map[string]*schema.Resource{
-			"namecheap_domain":     resourceDomain(),
-			"namecheap_domain_dns": resourceDomainDNS(),
+		ResourcesMap: map[string]*schema.Resource{},
+		DataSourcesMap: map[string]*schema.Resource{
+			"notion_user": datasourceNotionUser(),
 		},
-		DataSourcesMap:       map[string]*schema.Resource{},
 		ConfigureContextFunc: providerConfigureFunc,
 	}
 }
@@ -32,9 +31,5 @@ func providerConfigureFunc(_ context.Context, data *schema.ResourceData) (interf
 	var diags diag.Diagnostics
 	accessToken := data.Get("access_token").(string)
 	c := notion.NewClient(accessToken)
-	if v, ok := data.GetOk("url"); ok {
-		c.BaseURL = v.(string)
-	}
-
 	return c, diags
 }
