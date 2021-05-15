@@ -16,11 +16,11 @@ func datasourceNotionUser() *schema.Resource {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"people": {
+			"person": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem: &schema.Resource{
-					Schema: getUserPeopleSchema(),
+					Schema: getUserPersonSchema(),
 				},
 			},
 			"avatar_url": {
@@ -28,7 +28,7 @@ func datasourceNotionUser() *schema.Resource {
 				Computed: true,
 			},
 			"bot": {
-				Type:     schema.TypeMap,
+				Type:     schema.TypeList,
 				Computed: true,
 				Elem: &schema.Resource{
 					Schema: getUserBotSchema(),
@@ -42,7 +42,7 @@ func datasourceNotionUser() *schema.Resource {
 	}
 }
 
-func getUserPeopleSchema() map[string]*schema.Schema {
+func getUserPersonSchema() map[string]*schema.Schema {
 	return map[string]*schema.Schema{
 		"email": {
 			Type:        schema.TypeString,

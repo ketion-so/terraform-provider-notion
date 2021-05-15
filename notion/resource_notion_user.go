@@ -10,10 +10,10 @@ import (
 )
 
 func resourceNotionUserRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	client := meta.(notion.Client)
+	client := meta.(*notion.Client)
 	var diags diag.Diagnostics
 
-	userID := d.Get("user_id").(string)
+	userID := d.Get("id").(string)
 
 	user, err := client.Users.Get(ctx, userID)
 	if err != nil {
@@ -33,11 +33,11 @@ func resourceNotionUserRead(ctx context.Context, d *schema.ResourceData, meta in
 		return diag.FromErr(err)
 	}
 
-	if err := d.Set("person", user.Person); err != nil {
+	if err := d.Set("person", flatterUserPerson(user.Person)); err != nil {
 		return diag.FromErr(err)
 	}
 
-	if err := d.Set("bot", user.Bot); err != nil {
+	if err := d.Set("bot", flatterUserBot(user.Bot)); err != nil {
 		return diag.FromErr(err)
 	}
 
@@ -49,4 +49,17 @@ func resourceNotionUserImport(ctx context.Context, d *schema.ResourceData, meta 
 		return nil, fmt.Errorf("failed to read spinnaker application")
 	}
 	return []*schema.ResourceData{d}, nil
+}
+
+func flatterUserPerson(person *notion.People) []interface{} {
+	p := map[string]interface{}{
+		"email": person.Email,
+	}
+
+	return []interface{}{p}
+}
+
+func flatterUserBot(bot *notion.Bot) []interface{} {
+	b := map[string]interface{}{}
+	return []interface{}{b}
 }
