@@ -191,6 +191,8 @@ github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024/go.mod h1
 github.com/jstemmer/go-junit-report v0.9.1/go.mod h1:Brl9GWCQeLvo8nXZwPNNblvFj/XSXhF0NWZEnDohbsk=
 github.com/ketion-so/go-notion v0.0.15 h1:x000TZenzXmK0JWS5965ulhhlhruNw0OfXgrdt5Hgyk=
 github.com/ketion-so/go-notion v0.0.15/go.mod h1:tOZob8+0GAxVQQE9TXd8HPplEAwlrJidcqu0i07W9rE=
+github.com/ketion-so/go-notion v0.0.18 h1:fWxNzjYbmmoKTkbDRHk1C553d9AUrwLoAXY1V7Mu3V0=
+github.com/ketion-so/go-notion v0.0.18/go.mod h1:tOZob8+0GAxVQQE9TXd8HPplEAwlrJidcqu0i07W9rE=
 github.com/kevinburke/ssh_config v0.0.0-20201106050909-4977a11b4351/go.mod h1:CT57kijsi8u/K/BOFA39wgDQJ9CxiF4nAY/ojJ6r6mM=
 github.com/keybase/go-crypto v0.0.0-20161004153544-93f5b35093ba/go.mod h1:ghbZscTyKdM07+Fw3KSi0hcJm+AlEUWj8QLlPtijN/M=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
