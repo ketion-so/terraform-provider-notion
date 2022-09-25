@@ -1,6 +1,6 @@
 module github.com/ketion-so/terraform-provider-notion
 
-go 1.16
+go 1.19
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.6.1
